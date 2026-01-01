@@ -1,240 +1,372 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نموذج تأمين السيارات - آخر العروض</title>
-    <style>
-        /* تنسيق عام للصفحة */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7fb;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نموذج تأمين السيارات</title>
 
-        .container {
-            width: 70%;
-            margin: 40px auto;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            font-size: 1em;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-        h1, h2 {
-            text-align: center;
-            color: #333;
-            font-weight: bold;
-            margin-bottom: 30px;
-            font-size: 2em;
-        }
+<style>
+:root {
+    --primary: #2ecc71;
+    --secondary: #27ae60;
+    --dark: #2c3e50;
+    --light: #f9fbff;
+    --accent: #ff9800;
+}
 
-        .form-group {
-            margin-bottom: 25px;
-        }
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        label {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 5px;
-            display: block;
-        }
+/* Body */
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8ff);
+    color: var(--dark);
+}
 
-        input, select, textarea {
-            width: 100%;
-            padding: 15px;
-            margin-top: 8px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: all 0.3s ease-in-out;
-        }
+/* Container */
+.container {
+    width: 85%;
+    max-width: 1100px;
+    margin: 50px auto;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
 
-        input:focus, select:focus, textarea:focus {
-            border-color: #4CAF50;
-            outline: none;
-        }
+/* Headings */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s ease-in-out;
-        }
+h1 {
+    font-size: 2.4em;
+    color: var(--secondary);
+}
 
-        button:hover {
-            background-color: #45a049;
-        }
+h2 {
+    font-size: 2em;
+}
 
-        .terms {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #777;
-        }
+/* Form */
+.form-group {
+    margin-bottom: 25px;
+}
 
-        .terms a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: bold;
-        }
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
 
-        .terms a:hover {
-            text-decoration: underline;
-        }
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1.8px solid #ddd;
+    font-size: 1em;
+    transition: 0.3s;
+    background-color: #fff;
+}
 
-        /* قسم العروض */
-        .offers-section {
-            margin-top: 50px;
-            padding: 30px;
-            background-color: #e9f7e9;
-            border-radius: 10px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(46,204,113,0.2);
+    outline: none;
+}
 
-        .offer-card {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            transition: all 0.3s ease-in-out;
-        }
+/* Button */
+button {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    transition: 0.3s;
+}
 
-        .offer-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(46,204,113,0.4);
+}
 
-        .offer-card h3 {
-            color: #4CAF50;
-            font-size: 1.6em;
-            margin-bottom: 15px;
-        }
+/* Terms */
+.terms {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+}
 
-        .offer-card p {
-            color: #555;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
+.terms a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
 
-        .offer-card span {
-            font-weight: bold;
-            color: #ff6600;
-        }
+/* Offers Section */
+.offers-section {
+    margin-top: 70px;
+}
 
-        .offer-card img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
 
-        /* التأثيرات المتقدمة للعروض */
-        .offers-section .offer-card {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
+/* Offer Card */
+.offer-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: 0.4s;
+}
 
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+.offer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+}
+
+.offer-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.offer-content {
+    padding: 25px;
+}
+
+.offer-content h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-size: 1.4em;
+}
+
+.offer-content p {
+    line-height: 1.8;
+    color: #555;
+}
+
+.offer-content span {
+    color: var(--accent);
+    font-weight: 700;
+}
+/* Sections */
+.info-section {
+    margin-top: 70px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.info-section h2 {
+    color: var(--secondary);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.info-section p, .info-section li {
+    line-height: 1.9;
+    color: #555;
+    font-size: 1em;
+}
+
+.info-section ul {
+    padding-right: 20px;
+}
+
+/* FAQ */
+.faq-item {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.faq-question {
+    cursor: pointer;
+    font-weight: 700;
+    padding: 15px;
+    background: #f5fdf8;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.faq-question:hover {
+    background: #e8f7ef;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>نموذج تأمين السيارات</h1>
-        
-        <form action="#" method="POST">
-            <!-- بيانات العميل -->
-            <div class="form-group">
-                <label for="name">الاسم الكامل:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
+<div class="container">
+    <h1>نموذج تأمين السيارات</h1>
 
-            <div class="form-group">
-                <label for="email">البريد الإلكتروني:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">رقم الهاتف:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-
-            <!-- تفاصيل السيارة -->
-            <div class="form-group">
-                <label for="car_model">موديل السيارة:</label>
-                <input type="text" id="car_model" name="car_model" required>
-            </div>
-
-            <div class="form-group">
-                <label for="car_year">سنة صنع السيارة:</label>
-                <input type="number" id="car_year" name="car_year" required>
-            </div>
-
-            <div class="form-group">
-                <label for="car_plate">رقم لوحة السيارة:</label>
-                <input type="text" id="car_plate" name="car_plate" required>
-            </div>
-
-            <div class="form-group">
-                <label for="coverage_type">نوع التأمين:</label>
-                <select id="coverage_type" name="coverage_type" required>
-                    <option value="comprehensive">تأمين شامل</option>
-                    <option value="third_party">تأمين ضد الغير</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="message">ملاحظات إضافية:</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-            </div>
-
-            <button type="submit">تقديم الطلب</button>
-        </form>
-
-        <div class="terms">
-            <p>بالإرسال، أنت توافق على <a href="#">الشروط والأحكام</a> الخاصة بالتأمين.</p>
+    <form>
+        <div class="form-group">
+            <label>الاسم الكامل</label>
+            <input type="text" required>
         </div>
-        
-        <!-- قسم آخر العروض -->
-        <div class="offers-section">
-            <h2>آخر العروض</h2>
 
+        <div class="form-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" required>
+        </div>
+
+        <div class="form-group">
+            <label>رقم الهاتف</label>
+            <input type="tel" required>
+        </div>
+
+        <div class="form-group">
+            <label>موديل السيارة</label>
+            <input type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label>سنة الصنع</label>
+            <input type="number" required>
+        </div>
+
+        <div class="form-group">
+            <label>نوع التأمين</label>
+            <select required>
+                <option>تأمين شامل</option>
+                <option>تأمين ضد الغير</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>ملاحظات</label>
+            <textarea rows="4"></textarea>
+        </div>
+
+        <button>إرسال الطلب</button>
+    </form>
+
+    <div class="terms">
+        بالإرسال أنت توافق على <a href="#">الشروط والأحكام</a>
+    </div>
+
+    <div class="offers-section">
+        <h2>آخر العروض</h2>
+
+        <div class="offer-grid">
             <div class="offer-card">
-                <h3>عرض خاص لشهر يناير</h3>
-                <img src="https://via.placeholder.com/500x250" alt="عرض يناير">
-                <p>احصل على تأمين شامل مع خصم 20% على جميع السيارات الجديدة! <span>عرض محدود</span></p>
+                <img src="https://via.placeholder.com/500x250">
+                <div class="offer-content">
+                    <h3>عرض يناير</h3>
+                    <p>خصم 20% على التأمين الشامل <span>لفترة محدودة</span></p>
+                </div>
             </div>
 
             <div class="offer-card">
-                <h3>عرض تأمين ضد الغير</h3>
-                <img src="https://via.placeholder.com/500x250" alt="عرض ضد الغير">
-                <p>تأمين ضد الغير مع حماية من الحوادث مع أسعار تبدأ من 200 ريال شهريًا. <span>الخصم ساري حتى نهاية الشهر</span></p>
+                <img src="https://via.placeholder.com/500x250">
+                <div class="offer-content">
+                    <h3>تأمين ضد الغير</h3>
+                    <p>أسعار تبدأ من 200 ريال شهريًا <span>عرض خاص</span></p>
+                </div>
             </div>
 
             <div class="offer-card">
-                <h3>عرض لأصحاب السيارات الفاخرة</h3>
-                <img src="https://via.placeholder.com/500x250" alt="عرض السيارات الفاخرة">
-                <p>تأمين شامل لأصحاب السيارات الفاخرة مع خدمة صيانة مجانية لمدة 6 أشهر. <span>عرض حصري</span></p>
+                <img src="https://via.placeholder.com/500x250">
+                <div class="offer-content">
+                    <h3>السيارات الفاخرة</h3>
+                    <p>صيانة مجانية 6 أشهر <span>عرض حصري</span></p>
+                </div>
             </div>
         </div>
     </div>
+    <div class="info-section" id="terms">
+      <h2>الشروط والأحكام</h2>
+      <ul>
+          <li>جميع المعلومات المقدمة من العميل يجب أن تكون صحيحة ودقيقة.</li>
+          <li>يحق للشركة رفض أو تعديل الطلب في حال وجود معلومات غير صحيحة.</li>
+          <li>الأسعار والعروض قابلة للتغيير دون إشعار مسبق.</li>
+          <li>لا تتحمل الشركة أي مسؤولية عن استخدام غير قانوني للخدمة.</li>
+          <li>يخضع هذا التأمين لأنظمة وقوانين التأمين المعمول بها.</li>
+      </ul>
+  </div>
+  <div class="info-section" id="faq">
+    <h2>الأسئلة الشائعة</h2>
 
+    <div class="faq-item">
+        <div class="faq-question">هل التأمين الشامل يغطي الحوادث؟</div>
+        <div class="faq-answer">نعم، التأمين الشامل يغطي الحوادث، السرقة، والكوارث الطبيعية حسب البوليصة.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">كم مدة معالجة طلب التأمين؟</div>
+        <div class="faq-answer">عادةً يتم الرد خلال 24 إلى 48 ساعة عمل.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">هل يمكن إلغاء التأمين؟</div>
+        <div class="faq-answer">نعم، يمكن الإلغاء وفقًا للشروط والأحكام وسياسة الاسترجاع.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">هل الأسعار تشمل ضريبة القيمة المضافة؟</div>
+        <div class="faq-answer">نعم، جميع الأسعار المعروضة تشمل الضريبة.</div>
+    </div>
+</div>
+<div class="info-section" id="privacy">
+  <h2>سياسة الخصوصية</h2>
+  <p>
+      نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.
+      يتم جمع المعلومات فقط لغرض تقديم خدمات التأمين ولا يتم
+      مشاركتها مع أي طرف ثالث إلا عند الضرورة القانونية.
+  </p>
+
+  <p>
+      تشمل البيانات التي نجمعها: الاسم، رقم الهاتف، البريد الإلكتروني،
+      ومعلومات السيارة. يتم تخزين البيانات بأمان تام.
+  </p>
+
+  <p>
+      باستخدامك لهذا الموقع، فإنك توافق على سياسة الخصوصية الخاصة بنا.
+  </p>
+</div>
+
+</div>
+<script>
+  document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+          const answer = item.nextElementSibling;
+          answer.style.display = 
+              answer.style.display === 'block' ? 'none' : 'block';
+      });
+  });
+  </script>
+  
 </body>
 </html>
